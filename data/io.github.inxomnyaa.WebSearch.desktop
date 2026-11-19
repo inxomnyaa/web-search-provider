@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Web Search
+Comment=Search the web from the Activities search; start with ? for a quick answer
+Exec=@PREFIX@/settings.js
+Icon=web-browser
+Categories=Utility;
+Keywords=search;web;duckduckgo;google;
+StartupNotify=true
