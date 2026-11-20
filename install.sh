@@ -9,6 +9,7 @@ INI_DIR=/usr/local/share/gnome-shell/search-providers
 
 if [ "${1:-}" = "--uninstall" ]; then
     rm -rf "$PREFIX" "$DATA/applications/io.github.inxomnyaa.WebSearch.desktop" \
+        "$DATA/icons/hicolor/scalable/apps/io.github.inxomnyaa.WebSearch.svg" \
         "$DATA/dbus-1/services/io.github.inxomnyaa.WebSearch.SearchProvider.service"
     sudo rm -f "$INI_DIR/io.github.inxomnyaa.WebSearch.search-provider.ini"
     echo "Uninstalled (settings in ~/.config/web-search-provider kept)."
@@ -20,6 +21,7 @@ sudo install -D -m 644 data/io.github.inxomnyaa.WebSearch.search-provider.ini "$
 mkdir -p "$PREFIX" "$DATA/applications" "$DATA/dbus-1/services"
 install -m 755 src/provider.js src/settings.js "$PREFIX/"
 install -m 644 src/config.js "$PREFIX/"
+install -D -m 644 data/icons/io.github.inxomnyaa.WebSearch.svg "$DATA/icons/hicolor/scalable/apps/io.github.inxomnyaa.WebSearch.svg"
 sed "s|@PREFIX@|$PREFIX|" data/io.github.inxomnyaa.WebSearch.desktop > "$DATA/applications/io.github.inxomnyaa.WebSearch.desktop"
 sed "s|@PREFIX@|$PREFIX|" data/io.github.inxomnyaa.WebSearch.SearchProvider.service > "$DATA/dbus-1/services/io.github.inxomnyaa.WebSearch.SearchProvider.service"
 
